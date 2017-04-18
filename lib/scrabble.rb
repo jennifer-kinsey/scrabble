@@ -1,5 +1,5 @@
 class String
-  define_method(:scrabble) do
+  define_method(:score_letter) do
     total_score = 0
     score_table = {
       1 => ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"],
@@ -10,15 +10,20 @@ class String
       8 => ["J", "X"],
       10 => ["Q", "Z"]}
 
-    # if score_table.fetch(1).include?(self.upcase)
-    #   total_score = score.+(1)
-    # end
-
     score_table.each_pair() do |score, letters|
       if letters.include?(self.upcase)
         total_score = total_score.+(score)
       end
     end
     total_score
+  end
+
+  define_method(:score_word) do
+    word_score = 0;
+    word = self.split("");
+    word.each() do |letter|
+      word_score += letter.score_letter
+    end
+    word_score
   end
 end
