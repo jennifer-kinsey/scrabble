@@ -9,7 +9,11 @@ describe("String#scrabble") do
     expect("j".score_word()).to(eq(8))
   end
 
-  it("returns a scrabble score for a word") do
+  it("returns a scrabble score for a simpler word") do
     expect("cat".score_word()).to(eq(5))
+  end
+
+  it("returns a scrabble score for a longer word") do
+    expect("capybara".score_word()).to(eq(17))
   end
 end

@@ -25,5 +25,8 @@ class String
       word_score += letter.score_letter
     end
     word_score
+
+    # self.split("").map{|letter| letter.score_letter}.reduce(:+)
+
   end
 end
